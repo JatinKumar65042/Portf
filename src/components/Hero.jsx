@@ -45,14 +45,14 @@ const Hero = () => {
                         marginTop: '0.5rem',
                         marginBottom: '1rem'
                     }}>
-                        Jatin <span className="gradient-text">Kumar</span>
+                        <span className="gradient-text">NARENDRA</span>
                     </h1>
                     <h2 style={{
                         fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
                         color: 'var(--text-secondary)',
                         fontWeight: 400
                     }}>
-                        Software Engineer & <span style={{ color: 'var(--text-primary)' }}>Full Stack Developer</span>
+                        Civil Engineering Student & <span style={{ color: 'var(--text-primary)' }}>Full Stack Developer</span>
                     </h2>
                 </motion.div>
 
@@ -67,7 +67,7 @@ const Hero = () => {
                         lineHeight: 1.6
                     }}
                 >
-                    Passionate developer from IIT (BHU) Varanasi. Specializing in building scalable web applications and solving complex problems with Data Structures and Algorithms.
+                    Passionate B-Tech Civil Engineering student from IIT (BHU) Varanasi. Specializing in building scalable web applications, backend development, and solving complex problems with Data Structures and Algorithms.
                 </motion.p>
 
                 <motion.div
@@ -78,15 +78,15 @@ const Hero = () => {
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
                         <MapPin size={18} color="var(--accent-primary)" />
-                        <span>Varanasi, India</span>
+                        <span>Barmer, Rajasthan 344031</span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
                         <Mail size={18} color="var(--accent-primary)" />
-                        <span>jatinsokhal2300@gmail.com</span>
+                        <span>narendrajat1506@gmail.com</span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
                         <Phone size={18} color="var(--accent-primary)" />
-                        <span>(+91) 8950984468</span>
+                        <span>8619442726</span>
                     </div>
                 </motion.div>
 
@@ -96,7 +96,7 @@ const Hero = () => {
                     transition={{ duration: 0.5, delay: 0.6 }}
                     style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}
                 >
-                    <a href="https://github.com/JatinKumar65042" target="_blank" rel="noopener noreferrer"
+                    <a href="https://github.com/narendrajat1506" target="_blank" rel="noopener noreferrer"
                         style={{
                             padding: '0.8rem 1.5rem',
                             background: 'var(--bg-tertiary)',
@@ -115,7 +115,7 @@ const Hero = () => {
                     </a>
 
                     <a
-                        href="https://drive.google.com/file/d/17dNXMRCYKktRGHykdxnSoGPNhTx2sIYg/view?usp=sharing"
+                        href="https://drive.google.com/file/d/1orS34TwAGDzWj-38vMPKvOcTMY-CYetZ/view?usp=drive_link"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{

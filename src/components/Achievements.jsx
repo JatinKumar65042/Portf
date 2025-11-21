@@ -1,49 +1,53 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Star, Award, Users, Code } from 'lucide-react';
+import { Trophy, Star, Award, Users, Code, BookOpen } from 'lucide-react';
 
 const Achievements = () => {
     const achievements = [
         {
-            icon: <Trophy size={30} color="var(--accent-primary)" />,
-            title: "Codeforces Specialist",
-            description: "Max Rating: 1578",
-            sub: "Global Rank 540 in Round 1043 (Div. 3)",
-            link: "https://codeforces.com/profile/Proachtavish"
+            icon: <Code size={30} color="#FFA116" />,
+            title: "LeetCode",
+            description: "Global Rank 1,756",
+            sub: "Weekly Contest 463",
+            link: "https://leetcode.com/u/narendrajat1506/"
         },
         {
             icon: <Star size={30} color="var(--accent-secondary)" />,
-            title: "4 Star on Codechef",
-            description: "Max Rating: 1814",
-            sub: "Consistent top performer",
-            link: "https://www.codechef.com/users/proachtavish"
+            title: "CodeChef",
+            description: "Global Rank 654",
+            sub: "Starter 196 (Div 4)",
+            link: "https://www.codechef.com/users/narendrajat1506"
         },
         {
-            icon: <Code size={30} color="#FFA116" />,
-            title: "LeetCode",
-            description: "Active Problem Solver",
-            sub: "Check Profile",
-            link: "https://leetcode.com/u/Coder_65042/"
+            icon: <Trophy size={30} color="var(--accent-primary)" />,
+            title: "Codeforces Specialist",
+            description: "Global Rank 1,097",
+            sub: "Round 1043 (Div 3)",
+            link: "https://codeforces.com/profile/narendrajat1506"
+        }
+    ];
+
+    const publications = [
+        {
+            title: "Leveraging Virtual Sensors for Enhanced Ground Truthing in Chlorophyll-A Predictions with Spaceborne Data",
+            conference: "AGU 2024",
+            role: "Co-author"
         }
     ];
 
     const responsibilities = [
         {
-            role: "Co-Convener | Yuri’s Night’25",
+            role: "Marketing Co-ordinator | Kashiyatra'23",
             org: "IIT(BHU) Varanasi",
-            desc: "Led 40+ members, managed 10+ events, engaged 700+ participants."
-        },
-        {
-            role: "Event’s Head | Astronomy Club",
-            org: "IIT(BHU) Varanasi",
-            desc: "Organized workshops, led National Space Day ’24, managed Winter Camp."
-        },
-        {
-            role: "Student Guide, Academic Council",
-            org: "IIT(BHU) Varanasi",
-            desc: "Managed Fresher Orientation for 1500+ students."
+            period: "Nov 2022 - Jan 2023",
+            desc: "Served as Marketing Coordinator, gained hands-on experience in marketing strategies and campaign execution. Part of a 10-member team, guided by seniors, managing outreach to over 900+ students. Contributed to the successful promotion and execution of the festival, attended by 10,000+ participants."
         }
     ];
+
+    const extraCurricular = {
+        title: "JEE Counselling Mentor - ABPUA Initiative",
+        description: "Actively contributed to democratizing guidance for JEE-2023 aspirants by mentoring 100+ underprivileged students during the counselling process, highlighting the facilities, academic environment, and culture at IIT-BHU to support informed decision-making."
+    };
 
     return (
         <section id="achievements" className="section">
@@ -57,7 +61,8 @@ const Achievements = () => {
                     Achievements & <span className="gradient-text">Responsibilities</span>
                 </motion.h2>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
+                {/* Competitive Programming Achievements */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
                     {achievements.map((item, index) => (
                         <motion.a
                             key={index}
@@ -99,6 +104,38 @@ const Achievements = () => {
                     ))}
                 </div>
 
+                {/* Publications */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{
+                        background: 'var(--bg-secondary)',
+                        padding: '2rem',
+                        borderRadius: '16px',
+                        border: '1px solid rgba(255,255,255,0.05)',
+                        marginBottom: '3rem'
+                    }}
+                >
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <BookOpen size={24} color="var(--accent-primary)" />
+                        Publications
+                    </h3>
+                    {publications.map((pub, index) => (
+                        <div key={index} style={{
+                            borderLeft: '3px solid var(--accent-primary)',
+                            paddingLeft: '1.5rem'
+                        }}>
+                            <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{pub.title}</h4>
+                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <span style={{ fontSize: '0.9rem', color: 'var(--accent-secondary)', fontWeight: 600 }}>{pub.conference}</span>
+                                <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>• {pub.role}</span>
+                            </div>
+                        </div>
+                    ))}
+                </motion.div>
+
+                {/* Positions of Responsibility */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +144,8 @@ const Achievements = () => {
                         background: 'var(--bg-tertiary)',
                         padding: '2rem',
                         borderRadius: '16px',
-                        border: '1px solid rgba(255,255,255,0.05)'
+                        border: '1px solid rgba(255,255,255,0.05)',
+                        marginBottom: '3rem'
                     }}
                 >
                     <h3 style={{ fontSize: '1.5rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -125,9 +163,35 @@ const Achievements = () => {
                             }}>
                                 <h4 style={{ fontSize: '1.1rem' }}>{item.role}</h4>
                                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)' }}>{item.org}</span>
-                                <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}>{item.desc}</p>
+                                <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontStyle: 'italic' }}>{item.period}</span>
+                                <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>{item.desc}</p>
                             </div>
                         ))}
+                    </div>
+                </motion.div>
+
+                {/* Extra-curricular Activities */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{
+                        background: 'var(--bg-secondary)',
+                        padding: '2rem',
+                        borderRadius: '16px',
+                        border: '1px solid rgba(255,255,255,0.05)'
+                    }}
+                >
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <Award size={24} color="var(--accent-primary)" />
+                        Extra-curricular Activities
+                    </h3>
+                    <div style={{
+                        borderLeft: '3px solid var(--accent-secondary)',
+                        paddingLeft: '1.5rem'
+                    }}>
+                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{extraCurricular.title}</h4>
+                        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{extraCurricular.description}</p>
                     </div>
                 </motion.div>
             </div>

@@ -5,28 +5,28 @@ import { Github, ExternalLink, Folder } from 'lucide-react';
 const Projects = () => {
     const projects = [
         {
-            title: "EchoChat",
+            title: "Gapshap",
             description: "Real-Time Chat Application",
-            period: "July 2025 - Aug 2025",
+            period: "July 2025 - Sept 2025",
             points: [
-                "Built a Full-Stack chat application with secure authentication and advanced profile customization.",
-                "Implemented real-time messaging with typing indicators and active online presence tracking using Socket.io.",
-                "Enabled efficient image sharing and disappearing messages mode for enhanced privacy."
+                "Developed a real-time chat platform, enabling seamless chat providing enhanced user experience.",
+                "Implemented secure message caching enabling data protection through Redis and pub/sub architecture.",
+                "Implemented secure authentication using Google provider, and JWT for authorization."
             ],
-            tech: ["Next.js", "Socket.io", "TypeScript", "Redux", "Tailwind CSS"],
-            link: "https://github.com/JatinKumar65042/Chatapp"
+            tech: ["Next.js", "TypeScript", "Redis", "Pusher", "Next-Auth", "TailwindCSS", "Axios"],
+            link: "https://github.com/narendrajat1506/gapshap"
         },
         {
-            title: "CineVault",
-            description: "Movie Streaming Platform",
-            period: "Jan 2025 - March 2025",
+            title: "Web Based Hydrological Computational System",
+            description: "Hydrology Calculation Platform",
+            period: "March 2025 - May 2025",
             points: [
-                "Developed a Full-Stack Movie Streaming Platform with authentication and intuitive UI.",
-                "Implemented dynamic homepage, movie search, and like system to track popularity.",
-                "Integrated admin panel for managing movies and streamlining content updates."
+                "Built a full-stack hydrology app with Python/Django/JS, automating calculations that helps 150+ students annually.",
+                "Developed a Django RESTful API for data ingestion, server-side processing, and database persistence.",
+                "Implemented a dynamic frontend with JavaScript to consume JSON and render client-side data visualizations."
             ],
-            tech: ["React.js", "Node.js", "MongoDB", "Express", "Context API"],
-            link: "https://github.com/JatinKumar65042/Project1"
+            tech: ["Python", "Django", "JavaScript", "REST API", "PostgreSQL"],
+            link: "https://github.com/narendrajat1506/hydrology-system"
         }
     ];
 

@@ -20,23 +20,23 @@ const Contact = () => {
                     </p>
 
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-                        <a href="mailto:jatinsokhal2300@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', padding: '1rem 2rem', background: 'var(--bg-primary)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', transition: 'all 0.3s' }} className="contact-btn">
+                        <a href="mailto:narendrajat1506@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', padding: '1rem 2rem', background: 'var(--bg-primary)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', transition: 'all 0.3s' }} className="contact-btn">
                             <Mail size={20} color="var(--accent-primary)" />
-                            <span>jatinsokhal2300@gmail.com</span>
+                            <span>narendrajat1506@gmail.com</span>
                         </a>
-                        <a href="tel:+918950984468" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', padding: '1rem 2rem', background: 'var(--bg-primary)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', transition: 'all 0.3s' }} className="contact-btn">
+                        <a href="tel:+918619442726" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', padding: '1rem 2rem', background: 'var(--bg-primary)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', transition: 'all 0.3s' }} className="contact-btn">
                             <Phone size={20} color="var(--accent-primary)" />
-                            <span>(+91) 8950984468</span>
+                            <span>8619442726</span>
                         </a>
                     </div>
                 </motion.div>
 
                 <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                        © 2025 Jatin Kumar. All rights reserved.
+                        © 2025 NARENDRA. All rights reserved.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem' }}>
-                        <a href="https://github.com/JatinKumar65042" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }}>
+                        <a href="https://github.com/narendrajat1506" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }}>
                             <Github size={20} />
                         </a>
                         {/* Add LinkedIn if available */}
