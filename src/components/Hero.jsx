@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, FileText, MapPin, Phone } from 'lucide-react';
+import CodeSnippet from './CodeSnippet';
 
 const Hero = () => {
     return (
@@ -24,6 +25,20 @@ const Hero = () => {
                 zIndex: -1
             }} />
 
+            {/* Left side glow */}
+            <div style={{
+                position: 'absolute',
+                bottom: '10%',
+                left: '-10%',
+                width: '600px',
+                height: '600px',
+                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)',
+                filter: 'blur(80px)',
+                zIndex: -1
+            }} />
+
+            <CodeSnippet />
+
             <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -45,14 +60,14 @@ const Hero = () => {
                         marginTop: '0.5rem',
                         marginBottom: '1rem'
                     }}>
-                        <span className="gradient-text">NARENDRA</span>
+                        <span className="gradient-text text-3d">NARENDRA</span>
                     </h1>
                     <h2 style={{
                         fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
                         color: 'var(--text-secondary)',
                         fontWeight: 400
                     }}>
-                        Civil Engineering Student & <span style={{ color: 'var(--text-primary)' }}>Full Stack Developer</span>
+                        Software Engineer | <span style={{ color: 'var(--text-primary)' }}>Full Stack Developer</span>
                     </h2>
                 </motion.div>
 
@@ -61,13 +76,14 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     style={{
-                        maxWidth: '600px',
+                        maxWidth: '650px',
                         color: 'var(--text-secondary)',
-                        fontSize: '1.1rem',
-                        lineHeight: 1.6
+                        fontSize: '1.15rem',
+                        lineHeight: 1.7,
+                        fontWeight: 400
                     }}
                 >
-                    Passionate B-Tech Civil Engineering student from IIT (BHU) Varanasi. Specializing in building scalable web applications, backend development, and solving complex problems with Data Structures and Algorithms.
+                    Software Engineer from <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>IIT (BHU) Varanasi</span> with expertise in building scalable, high-performance web applications. Passionate about solving complex algorithmic challenges and architecting robust full-stack solutions using modern technologies like <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>React, Next.js, Node.js,</span> and <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Python</span>.
                 </motion.p>
 
                 <motion.div
@@ -94,17 +110,16 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
-                    style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}
+                    style={{ display: 'flex', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}
                 >
-                    <a href="https://github.com/narendrajat1506" target="_blank" rel="noopener noreferrer"
+                    <a href="https://github.com/letsdodifferent" target="_blank" rel="noopener noreferrer"
+                        className="glass"
                         style={{
                             padding: '0.8rem 1.5rem',
-                            background: 'var(--bg-tertiary)',
                             borderRadius: '8px',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '0.5rem',
-                            border: '1px solid rgba(255,255,255,0.1)',
                             transition: 'all 0.3s'
                         }}
                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent-primary)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
@@ -118,6 +133,7 @@ const Hero = () => {
                         href="https://drive.google.com/file/d/1orS34TwAGDzWj-38vMPKvOcTMY-CYetZ/view?usp=drive_link"
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="pulse-glow"
                         style={{
                             padding: '0.8rem 1.5rem',
                             background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))',
@@ -127,8 +143,7 @@ const Hero = () => {
                             gap: '0.5rem',
                             color: 'white',
                             fontWeight: 600,
-                            transition: 'all 0.3s',
-                            boxShadow: '0 4px 15px var(--accent-glow)'
+                            transition: 'all 0.3s'
                         }}
                         onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
                         onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}

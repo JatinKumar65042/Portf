@@ -13,10 +13,10 @@ const Contact = () => {
                     style={{ textAlign: 'center', marginBottom: '4rem' }}
                 >
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
-                        Get in <span className="gradient-text">Touch</span>
+                        Let's <span className="gradient-text">Connect</span>
                     </h2>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
-                        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                        Open to exciting opportunities in software engineering, full-stack development, and collaborative projects. Let's build something amazing together!
                     </p>
 
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}>
@@ -36,7 +36,7 @@ const Contact = () => {
                         © 2025 NARENDRA. All rights reserved.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem' }}>
-                        <a href="https://github.com/narendrajat1506" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }}>
+                        <a href="https://github.com/letsdodifferent" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }}>
                             <Github size={20} />
                         </a>
                         {/* Add LinkedIn if available */}

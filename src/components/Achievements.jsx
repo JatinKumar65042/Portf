@@ -1,29 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Star, Award, Users, Code, BookOpen } from 'lucide-react';
+import { Trophy, Star, Code, BookOpen, Target, Zap } from 'lucide-react';
 
 const Achievements = () => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
     const achievements = [
         {
-            icon: <Code size={30} color="#FFA116" />,
+            icon: <Code size={36} color="#FFA116" />,
             title: "LeetCode",
             description: "Global Rank 1,756",
             sub: "Weekly Contest 463",
-            link: "https://leetcode.com/u/narendrajat1506/"
+            detail: "Consistent problem-solving excellence",
+            link: "https://leetcode.com/u/jaatrj04/",
+            color: '#FFA116',
+            gradient: 'linear-gradient(135deg, #FFA116 0%, #FF8C00 100%)'
         },
         {
-            icon: <Star size={30} color="var(--accent-secondary)" />,
+            icon: <Star size={36} color="#8b5cf6" />,
             title: "CodeChef",
             description: "Global Rank 654",
             sub: "Starter 196 (Div 4)",
-            link: "https://www.codechef.com/users/narendrajat1506"
+            detail: "Top competitive programmer",
+            link: "https://www.codechef.com/users/narendrajat150",
+            color: '#8b5cf6',
+            gradient: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)'
         },
         {
-            icon: <Trophy size={30} color="var(--accent-primary)" />,
-            title: "Codeforces Specialist",
-            description: "Global Rank 1,097",
-            sub: "Round 1043 (Div 3)",
-            link: "https://codeforces.com/profile/narendrajat1506"
+            icon: <Trophy size={36} color="#6366f1" />,
+            title: "Codeforces",
+            description: "Specialist Rating",
+            sub: "Global Rank 1,097 • Round 1043",
+            detail: "Competitive programming excellence",
+            link: "https://codeforces.com/profile/narendrajat1506",
+            color: '#6366f1',
+            gradient: 'linear-gradient(135deg, #6366f1 0%, #3b82f6 100%)'
         }
     ];
 
@@ -31,168 +42,279 @@ const Achievements = () => {
         {
             title: "Leveraging Virtual Sensors for Enhanced Ground Truthing in Chlorophyll-A Predictions with Spaceborne Data",
             conference: "AGU 2024",
-            role: "Co-author"
+            role: "Co-author",
+            description: "Research on advanced environmental monitoring using satellite data and virtual sensors"
         }
     ];
-
-    const responsibilities = [
-        {
-            role: "Marketing Co-ordinator | Kashiyatra'23",
-            org: "IIT(BHU) Varanasi",
-            period: "Nov 2022 - Jan 2023",
-            desc: "Served as Marketing Coordinator, gained hands-on experience in marketing strategies and campaign execution. Part of a 10-member team, guided by seniors, managing outreach to over 900+ students. Contributed to the successful promotion and execution of the festival, attended by 10,000+ participants."
-        }
-    ];
-
-    const extraCurricular = {
-        title: "JEE Counselling Mentor - ABPUA Initiative",
-        description: "Actively contributed to democratizing guidance for JEE-2023 aspirants by mentoring 100+ underprivileged students during the counselling process, highlighting the facilities, academic environment, and culture at IIT-BHU to support informed decision-making."
-    };
 
     return (
         <section id="achievements" className="section">
             <div className="container">
-                <motion.h2
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}
+                    style={{ textAlign: 'center', marginBottom: '4rem' }}
                 >
-                    Achievements & <span className="gradient-text">Responsibilities</span>
-                </motion.h2>
+                    <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        Achievements & <span className="gradient-text">Recognition</span>
+                    </h2>
+                    <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
+                        Competitive programming excellence and research contributions
+                    </p>
+                </motion.div>
 
-                {/* Competitive Programming Achievements */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
+                {/* Competitive Programming Achievements - 3D Cards */}
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                    gap: '2.5rem',
+                    marginBottom: '5rem',
+                    perspective: '1500px'
+                }}>
                     {achievements.map((item, index) => (
                         <motion.a
                             key={index}
                             href={item.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: index * 0.15, duration: 0.6 }}
+                            onHoverStart={() => setHoveredIndex(index)}
+                            onHoverEnd={() => setHoveredIndex(null)}
                             style={{
-                                background: 'var(--bg-secondary)',
-                                padding: '2rem',
-                                borderRadius: '16px',
-                                border: '1px solid rgba(255,255,255,0.05)',
-                                textAlign: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                gap: '1rem',
+                                background: 'var(--bg-primary)',
+                                padding: '2.5rem',
+                                borderRadius: '24px',
+                                border: hoveredIndex === index
+                                    ? `2px solid ${item.color}`
+                                    : '2px solid rgba(255,255,255,0.05)',
                                 textDecoration: 'none',
                                 color: 'inherit',
-                                cursor: 'pointer'
+                                cursor: 'pointer',
+                                position: 'relative',
+                                overflow: 'hidden',
+                                transformStyle: 'preserve-3d',
+                                boxShadow: hoveredIndex === index
+                                    ? `0 25px 70px ${item.color}40`
+                                    : '0 10px 40px rgba(0, 0, 0, 0.3)',
+                                transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)'
                             }}
-                            whileHover={{ y: -5, borderColor: 'var(--accent-primary)' }}
                         >
+                            {/* Gradient Accent Bar */}
                             <div style={{
-                                background: 'var(--bg-tertiary)',
-                                padding: '1rem',
-                                borderRadius: '50%',
-                                marginBottom: '0.5rem'
-                            }}>
-                                {item.icon}
-                            </div>
-                            <h3 style={{ fontSize: '1.2rem' }}>{item.title}</h3>
-                            <p style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--accent-secondary)' }}>{item.description}</p>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{item.sub}</p>
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                height: '5px',
+                                background: item.gradient,
+                                opacity: hoveredIndex === index ? 1 : 0.7,
+                                transition: 'opacity 0.4s'
+                            }} />
+
+                            {/* Glowing Background */}
+                            <motion.div
+                                style={{
+                                    position: 'absolute',
+                                    top: '-50%',
+                                    right: '-50%',
+                                    width: '200%',
+                                    height: '200%',
+                                    background: `radial-gradient(circle, ${item.color}15 0%, transparent 60%)`,
+                                    pointerEvents: 'none'
+                                }}
+                                animate={{
+                                    opacity: hoveredIndex === index ? 1 : 0,
+                                    scale: hoveredIndex === index ? 1.2 : 1
+                                }}
+                                transition={{ duration: 0.6 }}
+                            />
+
+                            <motion.div
+                                style={{
+                                    transform: hoveredIndex === index ? 'translateZ(40px)' : 'translateZ(0)',
+                                    transition: 'transform 0.4s'
+                                }}
+                            >
+                                {/* Icon with 3D rotation */}
+                                <motion.div
+                                    style={{
+                                        display: 'inline-flex',
+                                        padding: '1.2rem',
+                                        background: `${item.color}20`,
+                                        borderRadius: '20px',
+                                        marginBottom: '1.5rem',
+                                        border: `2px solid ${item.color}30`
+                                    }}
+                                    animate={{
+                                        rotateY: hoveredIndex === index ? 360 : 0,
+                                        scale: hoveredIndex === index ? 1.1 : 1
+                                    }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    {item.icon}
+                                </motion.div>
+
+                                <h3 style={{
+                                    fontSize: '1.5rem',
+                                    marginBottom: '0.5rem',
+                                    color: item.color,
+                                    fontWeight: 700
+                                }}>
+                                    {item.title}
+                                </h3>
+
+                                <p style={{
+                                    fontSize: '1.3rem',
+                                    fontWeight: 700,
+                                    marginBottom: '0.5rem',
+                                    background: item.gradient,
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent'
+                                }}>
+                                    {item.description}
+                                </p>
+
+                                <p style={{
+                                    fontSize: '0.95rem',
+                                    color: 'var(--text-secondary)',
+                                    marginBottom: '1rem'
+                                }}>
+                                    {item.sub}
+                                </p>
+
+                                <div style={{
+                                    padding: '0.8rem 1.2rem',
+                                    background: 'var(--bg-secondary)',
+                                    borderRadius: '12px',
+                                    border: `1px solid ${item.color}20`,
+                                    fontSize: '0.85rem',
+                                    color: 'var(--text-secondary)',
+                                    fontWeight: 500,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem'
+                                }}>
+                                    <Zap size={16} color={item.color} />
+                                    {item.detail}
+                                </div>
+                            </motion.div>
                         </motion.a>
                     ))}
                 </div>
 
-                {/* Publications */}
+                {/* Publications Section - Premium Design */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     style={{
-                        background: 'var(--bg-secondary)',
-                        padding: '2rem',
-                        borderRadius: '16px',
-                        border: '1px solid rgba(255,255,255,0.05)',
-                        marginBottom: '3rem'
+                        background: 'var(--bg-primary)',
+                        padding: '3rem',
+                        borderRadius: '24px',
+                        border: '2px solid rgba(255,255,255,0.05)',
+                        position: 'relative',
+                        overflow: 'hidden'
                     }}
                 >
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <BookOpen size={24} color="var(--accent-primary)" />
-                        Publications
-                    </h3>
-                    {publications.map((pub, index) => (
-                        <div key={index} style={{
-                            borderLeft: '3px solid var(--accent-primary)',
-                            paddingLeft: '1.5rem'
-                        }}>
-                            <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{pub.title}</h4>
-                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                                <span style={{ fontSize: '0.9rem', color: 'var(--accent-secondary)', fontWeight: 600 }}>{pub.conference}</span>
-                                <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>• {pub.role}</span>
-                            </div>
-                        </div>
-                    ))}
-                </motion.div>
-
-                {/* Positions of Responsibility */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    style={{
-                        background: 'var(--bg-tertiary)',
-                        padding: '2rem',
-                        borderRadius: '16px',
-                        border: '1px solid rgba(255,255,255,0.05)',
-                        marginBottom: '3rem'
-                    }}
-                >
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <Users size={24} color="var(--accent-primary)" />
-                        Positions of Responsibility
-                    </h3>
-                    <div style={{ display: 'grid', gap: '1.5rem' }}>
-                        {responsibilities.map((item, index) => (
-                            <div key={index} style={{
-                                borderLeft: '2px solid var(--accent-secondary)',
-                                paddingLeft: '1.5rem',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '0.3rem'
-                            }}>
-                                <h4 style={{ fontSize: '1.1rem' }}>{item.role}</h4>
-                                <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)' }}>{item.org}</span>
-                                <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontStyle: 'italic' }}>{item.period}</span>
-                                <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>{item.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
-
-                {/* Extra-curricular Activities */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    style={{
-                        background: 'var(--bg-secondary)',
-                        padding: '2rem',
-                        borderRadius: '16px',
-                        border: '1px solid rgba(255,255,255,0.05)'
-                    }}
-                >
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <Award size={24} color="var(--accent-primary)" />
-                        Extra-curricular Activities
-                    </h3>
+                    {/* Gradient accent */}
                     <div style={{
-                        borderLeft: '3px solid var(--accent-secondary)',
-                        paddingLeft: '1.5rem'
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: '5px',
+                        background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary))'
+                    }} />
+
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1rem',
+                        marginBottom: '2.5rem'
                     }}>
-                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{extraCurricular.title}</h4>
-                        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{extraCurricular.description}</p>
+                        <div style={{
+                            padding: '1rem',
+                            background: 'var(--accent-primary)20',
+                            borderRadius: '16px',
+                            display: 'flex'
+                        }}>
+                            <BookOpen size={32} color="var(--accent-primary)" />
+                        </div>
+                        <div>
+                            <h3 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '0.25rem' }}>
+                                Research <span className="gradient-text">Publications</span>
+                            </h3>
+                            <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
+                                Academic contributions and research work
+                            </p>
+                        </div>
                     </div>
+
+                    {publications.map((pub, index) => (
+                        <motion.div
+                            key={index}
+                            whileHover={{ x: 10 }}
+                            style={{
+                                background: 'var(--bg-secondary)',
+                                padding: '2rem',
+                                borderRadius: '16px',
+                                borderLeft: '4px solid var(--accent-primary)',
+                                position: 'relative'
+                            }}
+                        >
+                            <div style={{
+                                display: 'inline-flex',
+                                padding: '0.4rem 1rem',
+                                background: 'var(--accent-primary)20',
+                                borderRadius: '20px',
+                                marginBottom: '1rem',
+                                fontSize: '0.85rem',
+                                fontWeight: 600,
+                                color: 'var(--accent-primary)'
+                            }}>
+                                {pub.conference}
+                            </div>
+
+                            <h4 style={{
+                                fontSize: '1.25rem',
+                                marginBottom: '1rem',
+                                color: 'var(--text-primary)',
+                                fontWeight: 600,
+                                lineHeight: 1.5
+                            }}>
+                                {pub.title}
+                            </h4>
+
+                            <p style={{
+                                fontSize: '0.95rem',
+                                color: 'var(--text-secondary)',
+                                marginBottom: '1rem',
+                                lineHeight: 1.6
+                            }}>
+                                {pub.description}
+                            </p>
+
+                            <div style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '0.5rem 1rem',
+                                background: 'var(--bg-tertiary)',
+                                borderRadius: '8px',
+                                fontSize: '0.85rem',
+                                color: 'var(--accent-secondary)',
+                                fontWeight: 600
+                            }}>
+                                <Target size={16} />
+                                {pub.role}
+                            </div>
+                        </motion.div>
+                    ))}
                 </motion.div>
             </div>
         </section>
